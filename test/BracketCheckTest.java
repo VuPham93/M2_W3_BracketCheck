@@ -75,4 +75,12 @@ class BracketCheckTest {
         assertFalse(result);
     }
 
+    @Test
+    void testBracket10() {
+        String expression = "b^2 – (4*a))*((c)^(0.5/ 2*a)";
+
+        boolean result = BracketCheck.checkBracket(expression);
+        assertFalse(result);
+    }
+
 }

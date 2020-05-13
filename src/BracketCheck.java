@@ -37,11 +37,16 @@ public class BracketCheck {
                     stack.push(stringArray[i]);
                 }
                 if (stringArray[i].equals(RIGHT_BRACKET)) {
-                    stack.push("false");
+                    stack.push(stringArray[i]);
+                    return stack;
                 }
             }
             else if (stringArray[i].equals(LEFT_BRACKET) || stringArray[i].equals(RIGHT_BRACKET)) {
-                stack.push(stringArray[i]);
+                if (stack.peek().equals(LEFT_BRACKET) && stringArray[i].equals(RIGHT_BRACKET)) {
+                    stack.pop();
+                } else
+                    stack.push(stringArray[i]);
+
                 if (stringArray[i - 1].equals(LEFT_BRACKET) && stringArray[i].equals(RIGHT_BRACKET)) {
                     stack.push("false");
                     return stack;
